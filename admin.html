@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard Terminal</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header-container">
+        <h1>TravelWithUs Central Admin Command Engine</h1>
+        <button class="btn-logout" onclick="localStorage.clear(); window.location.href='login.html';">Logout System</button>
+    </div>
+    
+    <div class="grid-container">
+        <div class="data-card">
+            <h2>Active Booking Approvals Routing Table</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Email</th>
+                            <th>Package</th>
+                            <th>Guests</th>
+                            <th>Total Cost</th>
+                            <th>Date</th>
+                            <th>Current Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTableBody">
+                        <tr><td colspan="8">Loading incoming pipeline schedules...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="data-card">
+            <h2>Customer Helpdesk Messages & Inquiries</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sender Name</th>
+                            <th>Email Source</th>
+                            <th>Contact Number</th>
+                            <th>Message Content</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesTableBody">
+                        <tr><td colspan="4">Loading inquiry databases...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if (localStorage.getItem("adminUser") !== "True") {
+            alert("Unauthorized Request! Re-routing to login panel terminal.");
+            window.location.href = "login.html";
+        }
+
+        async function fetchAdminData() {
+            try {
+                const bookRes = await fetch('http://localhost:3000/api/bookings');
+                const bookings = await bookRes.json();
+                const bBody = document.getElementById("bookingsTableBody");
+                
+                if (bookings && bookings.length > 0) {
+                    bBody.innerHTML = bookings.map(b => `
+                        <tr>
+                            <td><b>${b.customerName || 'Guest User'}</b></td>
+                            <td>${b.email || 'N/A'}</td>
+                            <td>${b.packageName || 'N/A'}</td>
+                            <td>${b.peopleCount || 1} Person(s)</td>
+                            <td style="color:#4ade80;"><b>${b.price || 'N/A'}</b></td>
+                            <td>${b.date || 'N/A'}</td>
+                            <td><span class="status-badge status-${b.status || 'Pending'}">${b.status || 'Pending'}</span></td>
+                            <td>
+                                <button class="btn btn-approve" onclick="updateStatus('${b._id}', 'Approved')">Approve</button>
+                                <button class="btn btn-reject" onclick="updateStatus('${b._id}', 'Rejected')">Reject</button>
+                            </td>
+                        </tr>
+                    `).join('');
+                } else {
+                    bBody.innerHTML = "<tr><td colspan='8'>No records found.</td></tr>";
+                }
+
+                const msgRes = await fetch('http://localhost:3000/api/contacts');
+                const messages = await msgRes.json();
+                const mBody = document.getElementById("messagesTableBody");
+                
+                if (messages && messages.length > 0) {
+                    mBody.innerHTML = messages.map(m => `
+                        <tr>
+                            <td><b>${m.name || 'Anonymous'}</b></td>
+                            <td><a href="mailto:${m.email || ''}" style="color:rgb(117, 234, 234); text-decoration:none;">${m.email || 'N/A'}</a></td>
+                            <td>${m.phone || 'N/A'}</td>
+                            <td><div class="msg-text">${m.message || 'N/A'}</div></td>
+                        </tr>
+                    `).join('');
+                } else {
+                    mBody.innerHTML = "<tr><td colspan='4'>Inbox clear. No customer inquiries found.</td></tr>";
+                }
+
+            } catch (err) {
+                console.error("Transmission breakdown:", err);
+            }
+        }
+
+        async function updateStatus(id, newStatus) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/bookings/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                if (response.ok) {
+                    fetchAdminData();
+                }
+            } catch (err) {
+                alert("Failed to modify approval token status.");
+            }
+        }
+
+        fetchAdminData();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

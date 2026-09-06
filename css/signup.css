@@ -1,0 +1,217 @@
+body {
+    background-color: rgb(117, 234, 234);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mainup {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url(../img/signbgg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    flex: 1 0 auto;
+}
+
+header {
+    position: relative;
+    z-index: 10;
+}
+
+.signup-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.signup-card {
+    background-color: rgba(40, 30, 30, 0.93);
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 520px;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.signup-card h2 {
+    color: rgb(117, 234, 234);
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid rgba(117, 234, 234, 0.3);
+    padding-bottom: 12px;
+}
+
+.form-row-split {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 480px) {
+    .form-row-split {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background: aliceblue;
+    font-size: 0.95rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+    border-color: rgb(117, 234, 234);
+    box-shadow: 0 0 8px rgba(117, 234, 234, 0.4);
+}
+
+.gender-section {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.gender-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.gender-options-container {
+    display: flex;
+    gap: 12px;
+}
+
+.radio-card-wrapper {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-card-wrapper input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.custom-radio-text {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid #000000;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.radio-card-wrapper input[type="radio"]:checked + .custom-radio-text {
+    background-color: rgb(117, 234, 234);
+    color: black;
+    border-color: rgb(117, 234, 234);
+    box-shadow: 0 4px 10px rgba(117, 234, 234, 0.25);
+}
+
+.radio-card-wrapper:hover .custom-radio-text {
+    border-color: rgba(117, 234, 234, 0.6);
+}
+
+/* Signup Button Custom Layout */
+.btn-signup-action {
+    width: 100%;
+    background-color: rgb(117, 234, 234);
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    padding: 14px;
+    border: 2px solid black;
+    border-radius: 50px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-sizing: border-box;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-signup-action:hover {
+    transform: scale(1.01);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+}
+
+.login-panel-redirect {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.92rem;
+    color: #cbd5e1;
+}
+
+.login-panel-redirect a {
+    color: rgb(117, 234, 234);
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+    transition: color 0.2s;
+}
+
+.login-panel-redirect a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+footer {
+    position: relative;
+    z-index: 5;
+    margin-top: auto; 
+    background-color: black;
+    width: 100%;
+}

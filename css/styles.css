@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Sans:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body{
+        background-color:azure;
+    }
+
+    .head{
+    display: flex;
+    font-family: "Cabin Sketch", sans-serif;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    color: white;
+    }
+
+    nav{
+        height: 70px;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        column-gap: 30px;
+        align-items:center;
+        position:absolute;
+        
+
+    }
+    .navigate{
+        color: rgb(235, 232, 232);
+        font-family: "Momo Trust Sans", sans-serif;
+        margin-right: 50px;
+        text-decoration: none;
+        transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .navigate:hover{
+        transform: scale(1.1);
+        text-shadow: 0 0 10px cyan, 0 0 15px cyan, 0 0 20px cyan;
+        color: white;
+    }
+
+    .Main{
+    height: 465px;
+    width: 100%;
+    border: 1px solid;
+    background-image: url(/img/R.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    position: relative;
+
+    }
+
+    .bg{
+        height:100%;
+        width: 100%;
+        z-index:1;
+    }
+
+    .overlay{
+        height: 346px;
+        background-color: rgba(0, 0, 0, 0.511);
+        color: white;
+        align-items: center;
+        text-align: center;
+        padding: 60px 30px;
+        z-index: 2;
+
+    }
+
+    .overlay p {
+    margin-top: 90px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.overlay h2 {
+    font-size: 30px;
+    font-family: "Momo Trust Sans", sans-serif;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+
+}
+
+.overlay a {
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: rgb(45, 233, 243);
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(255, 252, 252, 0.89);
+} 
+
+.overlay a.button{
+    position: relative;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    z-index: 10;
+}
+
+.overlay a.button:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px cyan, 0 0 15px cyan, 0 0 20px cyan;
+    color: white; 
+}
+
+
+.main2{
+    height: 450x;
+    width: 100%;
+    border: 1px solid;
+}
+
+.main2 h2{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.parentbox{
+    height: 400px;
+    width: 100%;
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content:space-around; 
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.main2 .box{
+    height: 300px;
+    width: 300px;
+    border: 1px solid;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    
+}
+
+.box:nth-child(1){
+    background-image: url(/img/manali.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    height: 300px;
+    width: 300px;
+    font-family: "Montserrat", sans-serif;
+    display:flex;   
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
+    animation-name: one;
+    animation-duration: 20s;
+    animation-delay: 3s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes one{
+     0% {
+        background-image: url(/img/manali.jpg);
+        background-position: center top;
+    }
+    20% {
+        background-image: url(/img/manali2.jpg);
+        background-position: center bottom;
+    }
+    40% {
+        background-image: url(/img/manali3.jpg);
+         background-position: center top;   
+    }
+    60% {
+        background-image: url(/img/manali4.webp);
+         background-position: center bottom;
+    }
+    80% {
+        background-image: url(/img/manali5.jpg);
+         background-position: center top;
+    }
+    100% {
+        background-image: url(/img/manali.jpg);
+         background-position: center bottom;
+    }
+
+}
+
+.box:nth-child(2){
+    background-image: url(/img/dubaii.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 300px;
+    width: 300px;
+    font-family: "Montserrat", sans-serif;
+    display:flex;   
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
+    animation-name: two;
+    animation-duration: 20s;
+    animation-delay: 3s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes two{
+     0% {
+        background-image: url(/img/dubaii.webp);
+        background-position: center top;
+    }
+    20% {
+        background-image: url(/img/dubai24.jpg);
+        background-position: center bottom;
+    }
+    40% {
+        background-image: url(/img/dubai3.jpg);
+         background-position: center top;   
+    }
+    60% {
+        background-image: url(/img/dubai4.webp);
+         background-position: center bottom;
+    }
+    80% {
+        background-image: url(/img/dubai5.jpg);
+         background-position: center top;
+    }
+    100% {
+        background-image: url(/img/dubaii.webp);
+         background-position: center bottom;
+    }
+
+}
+
+.box:nth-child(3){
+    background-image: url(/img/kedarnath.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    height: 300px;
+    width: 300px;
+    font-family: "Montserrat", sans-serif;
+    display:flex;   
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
+    animation-name: three;
+    animation-duration: 20s;
+    animation-delay: 3s;
+    animation-iteration-count:infinite;
+}
+
+@keyframes three{
+     0% {
+        background-image: url(/img/kedarnath.jpg);
+        background-position: center top;
+    }
+    20% {
+        background-image: url(/img/badrinath.jpg);
+        background-position: center bottom;
+    }
+    40% {
+        background-image: url(/img/dwarka.webp);
+         background-position: center top;   
+    }
+    60% {
+        background-image: url(/img/jagannath.jpg);
+         background-position: center bottom;
+    }
+    80% {
+        background-image: url(/img/rameshwaram.webp);
+         background-position: center top;
+    }
+    100% {
+        background-image: url(/img/kedarnath.jpg);
+         background-position: center bottom;
+    }
+
+}
+
+.black1, .black2, .black3 {
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.235);
+    display: flex;
+    z-index: 1; 
+}
+.box h3,
+.box a {
+    display: block; 
+    text-align: center; 
+    margin: 10px auto; 
+    margin-top: 30px;
+    z-index: 2;
+}
+
+.box a {
+    margin-top: 20px; 
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    background-color: aqua;
+    color: rgb(254, 254, 254);
+    z-index: 2;
+}
+
+.box:hover .black1,
+.box:hover .black2,
+.box:hover .black3 {
+background-color: rgba(0, 0, 0, 0.582); 
+transition: background-color 0.3s ease;
+}
+
+.box:hover a{
+    transform: scale(1.1); 
+    transition: transform 0.3s ease;
+}
+
+.main3{
+    height: 600px;
+    width: 100%;
+    background-color: rgba(42, 178, 237, 0.854);
+    border:1px solid;
+}
+
+.image{
+    height:400px;
+    width:100%;
+    background-image: url(/img/plane.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+.lay{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.272);
+    position: relative;
+    
+}
+
+h5{
+    color: white;
+    position: absolute;
+    margin-top: 140px;
+    margin-left: 250px;
+    
+}
+
+.lay h2{
+    color: white;
+    position:absolute;
+    margin-top: 170px;
+    margin-left: 185px;
+    letter-spacing: 3px;
+}
+
+.lay a{
+    position: absolute;
+    margin-top: 220px;
+    margin-left: 215px;
+    padding: 10px;
+    border: 1px solid;
+    background-color: aqua;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+    transition: transform 0.3s ease
+    
+}
+
+.lay a:hover{
+    transform:scale(1.1)
+}
+
+.out{
+    position: relative;
+    height: 100px;
+    width: 300;
+}
+
+.out h5{
+    position: absolute;
+    top: 150px;     
+    right: 250px;    
+    margin: 0;       
+    color: white; 
+}
+
+.out h2{
+    position: absolute;
+    top: 170px;          
+    right: 220px;
+    color: white;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.out a{
+    position: absolute;
+    right: 225px;
+    padding: 10px;
+    border: 1px solid;
+    background-color: aqua;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: rgb(255, 255, 255);
+    transition: transform 0.3s ease
+}
+
+.out a:hover{
+    transform: scale(1.1);
+}
+
+.log{
+    height: 200px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid;
+}
+
+.log h2{
+    position:absolute;
+    top: 30px;
+    margin: 0 auto;
+}
+
+.log p{
+    position: absolute;
+    bottom: 110px;
+}
+
+.log a{
+    text-decoration: none;
+    color: white;
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid black;
+    word-spacing: 2px;
+    background-color: rgba(0, 0, 255, 0);
+    transition: transform 0.3s ease;
+}
+
+.log a:hover{
+    transform:scale(1.1)
+}
+
+.log h6{
+    position: absolute;
+    top:150px
+}
+
+footer {
+  height: 610px;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  padding: 10px;
+  background-color: #031c04; 
+  color: white;
+  font-family: "Momo Trust Sans", sans-serif;
+  font-size: 14px;
+}
+
+
+.foot{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.footp{
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    margin-top: 100px;
+    /* left:450px; */
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+.parent{
+    margin: 130px auto;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    border: 1px solid;
+}
+
+.box2{
+    height: 200px;
+    width: 100%;
+    
+}
+
+.box2:nth-child(1){
+    background-image: url(/img/img1.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box2:nth-child(2){
+    background-image: url(/img/img2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box2:nth-child(3){
+    background-image: url(/img/img3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.box2:nth-child(4){
+    background-image: url(/img/img4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box2:nth-child(5){
+    background-image: url(/img/img5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.box2:nth-child(6){
+    background-image: url(/img/img6.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.end{
+    position: relative;
+    bottom: 30px;
+    
+}
+
+#rights{
+    position: relative;
+    bottom: 30px;
+}

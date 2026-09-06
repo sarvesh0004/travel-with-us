@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account - TravelWithUs</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mainup">
+        <header>
+            <nav class="navbg" style="background-color: black; position: relative;">
+                <h1 class="head">TravelwithUs</h1>
+                <a class="navigate" href="index.html">Home</a>
+                <a class="navigate" href="Service.html">Services</a>
+                <a class="navigate" href="Contact.html">Contact-Us</a>
+                <a class="navigate" href="aboutus.html">About-Us</a>
+                <a class="navigate" href="signup.html">Sign-Up</a>
+            </nav>
+        </header>
+
+        <div class="signup-wrapper">
+            <div class="signup-card">
+                <h2>📋 Create New Account</h2>
+                
+                <form id="signupForm">
+                    <div class="form-row-split">
+                        <div class="input-group">
+                            <label for="name">First Name:</label>
+                            <input type="text" id="name" placeholder="John" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="lastname">Last Name:</label>
+                            <input type="text" id="lastname" placeholder="Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-row-split">
+                        <div class="input-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Phone No:</label>
+                            <input type="tel" id="phone" placeholder="+91 98765 43210">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="date">Date of Birth:</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="gender-section">
+                        <span class="gender-label">Select Gender Orientation:</span>
+                        <div class="gender-options-container">
+                            <label class="radio-card-wrapper" for="male">
+                                <input type="radio" id="male" name="gender" value="Male" checked>
+                                <span class="custom-radio-text">Male</span>
+                            </label>
+                            <label class="radio-card-wrapper" for="female">
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <span class="custom-radio-text">Female</span>
+                            </label>
+                            <label class="radio-card-wrapper" for="other">
+                                <input type="radio" id="other" name="gender" value="Other">
+                                <span class="custom-radio-text">Other</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-signup-action">Submit Registration</button>
+                </form>
+
+                <div class="login-panel-redirect">
+                    Already our member? <a href="login.html">Login Here &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <footer> 
+            <p class="footp"><b>#THEWORLDISWAITING</b></p>
+            <div class="parent">
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="end">
+                <p id="rights">&copy; 2025 TravelwithUs. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const payload = {
+                firstName: document.getElementById("name").value,
+                lastName: document.getElementById("lastname").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value,
+                phone: document.getElementById("phone").value,
+                dob: document.getElementById("date").value,
+                gender: document.querySelector('input[name="gender"]:checked').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    alert("Account Created Successfully! Redirecting to login panel.");
+                    window.location.href = "login.html";
+                } else {
+                    alert(data.message || "Signup failed");
+                }
+            } catch (err) {
+                alert("Database offline or network error.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.maina1{
+    height: 450px;
+    width: 100%;
+    border: 1px solid;
+}
+
+.atop{
+    background-image: url(/img/aboutbg.jpg);
+    height: 200px;
+    width: 100%;
+    background-position: center;
+    background-size: 100% 300px;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    position: relative;
+}
+
+.maina1 h3{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paragraph{
+    height: 130px;
+    width: 800px;
+    position: relative;
+    margin: 0px auto;
+    top: 20px;
+    background-color: beige;
+    border-radius: 30px;
+}
+
+.paragraph p{
+    position: relative;
+    top: 10px;
+    text-align: center;
+}

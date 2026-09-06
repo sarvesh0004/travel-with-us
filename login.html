@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Login - TravelWithUs</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mainup">
+        <header>
+            <nav style="background-color: black; position: relative;">
+                <h1 class="head">TravelwithUs</h1>
+                <a class="navigate" href="index.html">Home</a>
+                <a class="navigate" href="Service.html">Services</a>
+                <a class="navigate" href="Contact.html">Contact-Us</a>
+                <a class="navigate" href="aboutus.html">About-Us</a>
+                <a class="navigate" href="signup.html">Sign-Up</a>
+            </nav>
+        </header>
+
+        <div class="login-wrapper">
+            <div class="login-card">
+                <h2>🔐 Gateway Account Sign-In</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="loginEmail">Email Address:</label>
+                        <input type="email" id="loginEmail" required placeholder="name@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Account Password:</label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn-access">Secure Login</button>
+                </form>
+                <div class="signup-redirect">
+                    New to the platform? <br><a href="signup.html">Create an Account Here &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <footer> 
+            <p class="footp"><b>#THEWORLDISWAITING</b></p>
+            <div class="parent">
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+                <div class="box2"></div>
+            </div>
+            <div class="end">
+                <p id="rights">&copy; 2025 TravelwithUs. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const emailInput = document.getElementById("loginEmail").value;
+            const passwordInput = document.getElementById("loginPassword").value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailInput, password: passwordInput })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem("userName", data.name);
+                    localStorage.setItem("userEmail", data.email);
+                    localStorage.setItem("userToken", "auth_session_active_" + Date.now());
+
+                    if (data.isAdmin === true) {
+                        localStorage.setItem("adminUser", "True");
+                        alert("🔒 Admin Clearance Authorized. Opening System Dashboard.");
+                        window.location.href = "admin.html";
+                    } else {
+                        localStorage.setItem("adminUser", "False");
+                        alert(`Welcome back, ${data.name}! Login successful.`);
+                        window.location.href = "index.html";
+                    }
+                } else {
+                    alert(data.message || "Authentication rejected.");
+                }
+            } catch (err) {
+                console.error("Authentication connectivity failure:", err);
+                alert("Failed to connect to authentication backend server node.");
+            }
+        });
+    </script>
+</body>
+</html>

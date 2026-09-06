@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactUs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="mainc1">
+        <header>
+            <nav>
+                <h1 class="head">TravelwithUs </h1>
+                <a class="navigate" href="index.html">Home</a>
+                <a class="navigate" href="Service.html">Services</a>
+                <a class="navigate" href="Contact.html">Contact-Us</a>
+                <a class="navigate" href="aboutus.html">About-Us</a>
+                <a class="navigate" href="signup.html">Sign-Up</a>
+            </nav>
+        </header>
+
+        <div class="contac">
+            <h1>CONTACT-US</h1>
+            <p>Have questions or need help planning your trip? Get in touch with us anytime!</p>
+            <div class="logo">
+                <div class="social">
+                    <a href="https://www.instagram.com/"><img src="/img/instabg.webp" alt="Instagram"></a>
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com"><img src="/img/fbbg.jpg" alt="Facebook"></a>
+                </div>
+                <div class="social">
+                    <a href="https://x.com/"><img src="/img/x.jpg" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="info-sidebar">
+                <h2>Drop a Line</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon add-icon"></div>
+                    <div class="info-text">
+                        <h3>Our Headquarters</h3>
+                        <p>Office no 101, 17th floor,<br>Vashi Info Tech Park, Sec 17,<br>Navi Mumbai - 400703</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon call-icon"></div>
+                    <div class="info-text">
+                        <h3>Call Support</h3>
+                        <p>1800 1001 5478<br>1800 1001 6598</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon mail-icon"></div>
+                    <div class="info-text">
+                        <h3>Email Address</h3>
+                        <p>contact@travelwithus.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cbox">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="txtName">Full Name</label>
+                        <input type="text" id="txtName" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtContactEmail">Your Mail-Id</label>
+                        <input type="email" id="txtContactEmail" placeholder="name@domain.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtContactPhone">Phone No</label>
+                        <input type="tel" id="txtContactPhone" placeholder="Mobile Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="textfield">Message</label>
+                        <textarea id="textfield" rows="4" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-send">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer> 
+        <p class="footp"><b>#THEWORLDISWAITING</b></p>
+        <div class="parent">
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+        </div>
+        <div class="end">
+            <p id="rights">&copy; 2025 TravelwithUs. All rights reserved.</p>
+            <p>By using TravelwithUs, you agree to our terms and conditions, including cancellation policies and applicable penalty charges. This website operates under the laws of India and serves customers within the country.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const payload = {
+                name: document.getElementById("txtName").value,
+                email: document.getElementById("txtContactEmail").value,
+                phone: document.getElementById("txtContactPhone").value,
+                message: document.getElementById("textfield").value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/contacts', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (response.ok) {
+                    alert("Thank you! Your message has been routed to administration.");
+                    document.getElementById("contactForm").reset();
+                } else {
+                    alert("Failed to record message on server backend routing arrays.");
+                }
+            } catch (err) {
+                alert("Failed to submit inquiry. Check database network connectivity.");
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Booking History</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/booking-page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header style="background-color: black; height: 70px; position: relative; width: 100%;">
+        <nav>
+            <h1 class="head">TravelwithUs</h1>
+            <a class="navigate" href="index.html">Home</a>
+            <a class="navigate" href="Service.html">Services</a>
+            <a class="navigate" href="Contact.html">Contact-Us</a>
+            <a class="navigate" href="aboutus.html">About-Us</a>
+            <a class="navigate" href="signup.html">Sign-Up</a>
+        </nav>
+    </header>
+
+    <div class="history-wrapper" style="margin-top: 50px;">
+        <h2>Your Past Trip Bookings</h2>
+        <div id="historyLogsWrapper">Querying history archives from MongoDB...</div>
+        <a href="index.html" class="link-home-back">← Return back to Main Console</a>
+    </div>
+    <footer> 
+        <p class="footp"><b>#THEWORLDISWAITING</b></p>
+        <div class="parent">
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+        </div>
+        <div class="end">
+            <p id="rights">&copy; 2025 TravelwithUs. All rights reserved.</p>
+            <p>By using TravelwithUs, you agree to our terms and conditions, including cancellation policies and applicable penalty charges. This website operates under the laws of India and serves customers within the country.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const container = document.getElementById("historyLogsWrapper");
+            const emailKey = localStorage.getItem("userEmail") || "sarvesh.patil@gmail.com";
+
+            try {
+                const response = await fetch(`http://localhost:3000/api/bookings/history/${emailKey}`);
+                const data = await response.json();
+
+                if (!response.ok || data.length === 0) {
+                    container.innerHTML = "<p style='color: rgba(40, 30, 30, 0.8); font-weight: 500; text-align: center; padding: 20px;'>No booking history profiles found tied to this account.</p>";
+                    return;
+                }
+
+                container.innerHTML = "";
+                data.forEach(trip => {
+                    const card = document.createElement("div");
+                    card.className = "card-node";
+                    card.style.marginBottom = "20px";
+
+                    let statusBadgeClass = "badge-pending";
+                    let friendlyStatus = "Pending Review";
+
+                    if (trip.status === "Approved" || trip.status === "Confirmed") {
+                        statusBadgeClass = "badge-paid";
+                        friendlyStatus = "Confirmed & Paid";
+                    } else if (trip.status === "Rejected" || trip.status === "Cancelled") {
+                        statusBadgeClass = "badge-rejected";
+                        friendlyStatus = "Cancelled / Refunded";
+                    }
+
+                    card.innerHTML = `
+                        <div class="billing-row" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 15px;">
+                            <span style="font-size: 1.3rem; font-weight: bold; color: rgb(117, 234, 234);">🗺️ ${trip.packageName}</span>
+                            <span class="${statusBadgeClass}">${friendlyStatus}</span>
+                        </div>
+                        <div class="meta-line"><strong>Total Seats Saved:</strong> ${trip.peopleCount || 1} Person(s)</div>
+                        <div class="meta-line"><strong>Travel Scheduled On:</strong> ${trip.date || 'Flexible'}</div>
+                        <div class="meta-line"><strong>Logistics State:</strong> ${trip.status === 'Approved' ? 'Ticket Issued - Group Assembly 05:30 AM' : 'Awaiting Fleet Allocation Confirmation'}</div>
+                        <div class="billing-row highlight-net" style="margin-top: 15px; font-size: 1.3rem;">
+                            <span>Processed Bill:</span>
+                            <span>${trip.amount || trip.price || 'INR 0'}</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                container.innerHTML = "<p style='color:#ef4444; text-align: center; padding: 20px;'>Failed to stream connection packets from backend routing tables.</p>";
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

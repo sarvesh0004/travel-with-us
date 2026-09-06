@@ -1,0 +1,581 @@
+    .Main1{
+        height: 800px;
+        width: 100%;
+        border: 1px solid;
+    }
+
+    .topper{
+        height: 400px;
+        width: 100%;
+        background-color: black;
+
+    }
+
+    .head2{
+        color: white;
+        position: relative;
+        text-align: center;
+        top: 100px;
+    }
+
+    .headp{
+        color: white;
+        position: relative;
+        text-align: center;
+        top: 130px;
+        height: 100px;
+        width: 500px;
+        margin: 0px auto;
+    
+    }
+    .bgi{
+        height: 400px;
+        width: 100%;
+        margin-top: 263px;
+        background-image: url('/img/SSCOVV.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment:scroll;
+        background-position:center;
+        border: 1px solid;
+        position: relative;
+        
+    }
+
+    .container{
+        margin: 140px auto;
+        height:300px;
+        width: 100%;
+        position:absolute;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        z-index: 1;
+    }
+
+    .sbox{
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        width: 250px;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        align-items: center;
+    }
+
+    .sbox:nth-child(1){
+        background-image: url(/img/travsym.png);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: 20px 10px;
+    }
+
+    .sbox:nth-child(1) h3{
+        margin-top: 60px;
+    }
+
+    .sbox:nth-child(1) p{
+        margin-top: 15px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .sbox:nth-child(2){
+        background-image: url(/img/earth.png);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: 30px 10px;
+    }
+
+    .sbox:nth-child(2) h3{
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .sbox:nth-child(2) p{
+        margin-top: 15px;
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .sbox:nth-child(3){
+        background-image: url(/img/SPIRIT.png);
+        background-size: 40px;
+        background-repeat: no-repeat;
+        background-position: 30px 5px;
+    }
+
+    .sbox:nth-child(3) h3{
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .sbox:nth-child(3) p{
+        margin-top: 5px;
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .sbox a{
+        position: relative;
+        text-decoration: none;
+        padding: 10px;
+        background-color: rgb(0, 0, 0);
+        border-radius: 20px;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .sbox a:hover{
+        transform:scale(1.1);
+    }
+
+    .sbox:nth-child(1) a{
+        top:10px;
+    }
+
+    .sbox:nth-child(2) a{
+        top: 15px;  
+    }
+
+
+    .mains2{
+        height: 950px;
+        width: 100%;
+        background-color: black;
+    }
+
+    .mains2 h1{ 
+        text-align: center;
+        padding: 10px;
+        color: white;
+        background-color: black;
+        border: 5px solid white;
+    }
+
+    .ex1boxparent{
+        margin-top: 20px;
+        height: 900px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .ex1boxchild{
+        height: 400px;
+        width: 320px;
+        /* border: 1px solid; */
+        border-radius: 30px;
+        background-color: rgb(200, 207, 207);
+        text-align: center;
+    }
+
+    .ex1boxchild a{
+        display: inline-block;
+        color:white;
+        background-color: black;
+        transition: transform 0.3s ease;
+    }
+
+    .ex1boxchild a:hover{
+        transform: scale(1.1);
+    }
+
+    .ex1boxchild:nth-child(1){
+        
+        background-image: url(/img/m31.webp);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex1boxchild h4{
+        text-align: center;
+        margin-top: 230px;
+    }
+
+    .ex1boxchild p{
+        text-align: center;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    .ex1boxchild:nth-child(1) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex1boxchild:nth-child(2){
+        
+        background-image: url(/img/kashmir.webp);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex1boxchild:nth-child(2) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex1boxchild:nth-child(3){
+        
+        background-image: url(/img/gold.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+
+    .ex1boxchild:nth-child(3) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex1boxchild:nth-child(4){
+        
+        background-image: url(/img/KERLA.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex1boxchild:nth-child(4) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex1boxchild:nth-child(5){
+        
+        background-image: url(/img/DARJEELING.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex1boxchild:nth-child(5) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex1boxchild:nth-child(6){
+        
+        background-image: url(/img/GOA.webp);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+
+    .ex1boxchild:nth-child(6) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .mains3{
+        height: 1000px;
+        width: 100%;
+        background-color: black;
+    }
+
+    .mains3 h1{ 
+        text-align: center;
+        padding: 10px;
+        color: white;
+        background-color: black;
+        border: 5px solid white;
+    }
+
+    .ex2boxparent{
+        margin-top: 20px;
+        height: 900px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .ex2boxchild{
+        height: 400px;
+        width: 320px;
+        border-radius: 30px;
+        background-color: rgb(200, 207, 207);
+        text-align: center;
+    }
+
+    .ex2boxchild:nth-child(1){
+        
+        background-image: url(/img/dubai.webp);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex2boxchild h4{
+        text-align: center;
+        margin-top: 230px;
+    }
+
+    .ex2boxchild p{
+        text-align: center;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    .ex2boxchild:nth-child(1) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex2boxchild:nth-child(2){
+        
+        background-image: url(/img/thailand.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex2boxchild:nth-child(2) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex2boxchild:nth-child(3){
+        
+        background-image: url(/img/BALI.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+
+    .ex2boxchild:nth-child(3) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex2boxchild:nth-child(4){
+        
+        background-image: url(/img/SINGAPORE.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex2boxchild:nth-child(4) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex2boxchild:nth-child(5){
+        
+        background-image: url(/img/EUROPE.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex2boxchild:nth-child(5) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex2boxchild:nth-child(6){
+        
+        background-image: url(/img/GOA.webp);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+
+    .ex2boxchild:nth-child(6) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    } 
+
+    .ex2boxchild a{
+        display: inline-block;
+        background-color: black;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .ex2boxchild a:hover{
+        transform: scale(1.1);
+    }
+
+    .mains4{
+        height: 1000px;
+        width: 100%;
+        background-color: black;
+    }
+
+    .mains4 h1{ 
+        text-align: center;
+        padding: 10px;
+        color: white;
+        background-color: black;
+        border: 5px solid white;
+    }
+
+    .ex3boxparent{
+        margin-top: 20px;
+        height: 900px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .ex3boxchild{
+        height: 400px;
+        width: 320px;
+        border-radius: 30px;
+        background-color: rgb(200, 207, 207);
+        text-align: center;
+    }
+
+    .ex3boxchild:nth-child(1){
+        
+        background-image: url(/img/CHARDHAM.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex3boxchild h4{
+        text-align: center;
+        margin-top: 230px;
+    }
+
+    .ex3boxchild p{
+        text-align: center;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+    .ex3boxchild:nth-child(1) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex3boxchild:nth-child(2){
+        
+        background-image: url(/img/JYOTI.png);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex3boxchild:nth-child(2) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex3boxchild:nth-child(3){
+        
+        background-image: url(/img/SHIRDI.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+
+    .ex3boxchild:nth-child(3) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex3boxchild:nth-child(4){
+        
+        background-image: url(/img/SOUTH.webp);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex3boxchild:nth-child(4) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex3boxchild:nth-child(5){
+        
+        background-image: url(/img/PANJ.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+    .ex3boxchild:nth-child(5) a{
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .ex3boxchild:nth-child(6){
+        
+        background-image: url(/img/JAGANATH.jpg);
+        background-size: 320px 220px;
+        background-repeat: no-repeat;
+    }
+
+
+    .ex3boxchild:nth-child(6) a{
+        position: relative;
+        top: 27px;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 20px;
+    } 
+
+    .ex3boxchild a{
+        display: inline-block;
+        background-color: black;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .ex3boxchild a:hover{
+        transform: scale(1.1);
+    }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Details & Booking - TravelWithUs</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/booking-page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="scoped-booking-layout">
+    <a class="btn-floating-back" href="javascript:history.back() || 'Service.html'">⬅ Back to Services</a>
+
+    <header class="scoped-nav-container">
+        <nav>
+            <h1 class="head">TravelwithUs</h1>
+            <a class="navigate" href="index.html">Home</a>
+            <a class="navigate" href="Service.html">Services</a>
+            <a class="navigate" href="Contact.html">Contact-Us</a>
+            <a class="navigate" href="aboutus.html">About-Us</a>
+            <a class="navigate" href="signup.html">Sign-Up</a>
+        </nav>
+    </header>
+
+    <div class="scoped-content-grower">
+        <div class="dest-hero" id="heroBanner">
+            <div class="hero-tint">
+                <h1 id="destTitle">LOADING PACKAGE...</h1>
+                <p id="destSubtitle">FETCHING ITINERARY DETAILS</p>
+            </div>
+        </div>
+
+        <div class="booking-grid">
+            <div class="itinerary-section">
+                <div class="card-node">
+                    <h2>📍 Trip Logistics & Scheduling</h2>
+                    <p><strong>Route Path:</strong> <span id="logisticsRoute">Loading...</span></p>
+                    <p><strong>Duration Timeline:</strong> <span id="logisticsDuration">Loading...</span></p>
+                    <p><strong>Standard Timing:</strong> Assembly starts at 05:30 AM at selected Indian Transit Hubs.</p>
+                </div>
+
+                <div class="card-node">
+                    <h2>🗓️ Complete Package Itinerary</h2>
+                    <ul id="itineraryTimelineList" class="custom-timeline"></ul>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="price-summary-box">
+                    <h2>💳 Cost Breakdown & Pricing</h2>
+                    <div class="billing-row">
+                        <span>Standard Tour Fair:</span>
+                        <span id="txtGrossPrice" class="strike-old">INR 0</span>
+                    </div>
+                    <div class="billing-row green-accent">
+                        <span>Seasonal Promotional Discount (15%):</span>
+                        <span id="txtDiscount">- INR 0</span>
+                    </div>
+                    <hr class="divider">
+                    <div class="billing-row highlight-net">
+                        <span>Net Payable Pricing:</span>
+                        <span id="txtNetPrice">INR 0</span>
+                    </div>
+                </div>
+
+                <div class="checkout-card">
+                    <h2>📝 Complete Your Reservation</h2>
+                    <form id="tourCheckoutForm">
+                        <label for="ddlPickup">Select Pick-Up Point Hub:</label>
+                        <select id="ddlPickup" required>
+                            <option value="New Delhi IGI Airport T3">New Delhi IGI Airport Terminal 3 Hub</option>
+                            <option value="Mumbai Central Junction">Mumbai Central Main Railway Hub</option>
+                            <option value="Kolkata Howrah Terminal Platform">Kolkata Howrah Terminal Platform</option>
+                            <option value="Chandigarh ISBT Sector 43">Chandigarh ISBT Sector 43 Complex</option>
+                            <option value="Chennai Central Railway">Chennai Central Terminal Junction</option>
+                        </select>
+
+                        <label for="txtJourneyDate">Preferred Departure Date:</label>
+                        <input type="date" id="txtJourneyDate" required>
+
+                        <label for="txtPeopleCount">Number of People / Travelers:</label>
+                        <input type="number" id="txtPeopleCount" min="1" value="1" required>
+
+                        <button type="submit" class="btn-checkout">CONFIRM TOUR PACKAGE RESERVATION</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer> 
+        <p class="footp"><b>#THEWORLDISWAITING</b></p>
+        <div class="parent">
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+        </div>
+        <div class="end">
+            <p id="rights">&copy; 2025 TravelwithUs. All rights reserved.</p>
+            <p>By using TravelwithUs, you agree to our terms and conditions, including cancellation policies and applicable penalty charges. This website operates under the laws of India and serves customers within the country.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking-engine.js"></script>
+</body>
+</html>

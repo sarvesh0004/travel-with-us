@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout & Invoice - TravelWithUs</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/booking-page.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .checkout-wrapper {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .status-alert {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid #22c55e;
+            color: #4ade80;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+        }
+        .btn-download {
+            background-color: #22c55e !important;
+            color: white !important;
+        }
+        .btn-cancel {
+            background-color: transparent !important;
+            color: white !important;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            box-sizing: border-box;
+        }
+        .btn-cancel:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+        .invoice-pdf-capture {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            color: #1e293b;
+            padding: 35px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+            margin: 0 auto 25px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav style="background-color: black; position: relative;">
+            <h1 class="head">TravelwithUs</h1>
+            <a class="navigate" href="index.html">Home</a>
+            <a class="navigate" href="Service.html">Services</a>
+            <a class="navigate" href="Contact.html">Contact-Us</a>
+            <a class="navigate" href="aboutus.html">About-Us</a>
+            <a class="navigate" href="signup.html">Sign-Up</a>
+        </nav>
+    </header>
+
+    <div class="checkout-wrapper">
+        <div class="checkout-card" style="background: rgba(40, 30, 30, 0.95); padding: 30px; border-radius: 20px; box-sizing: border-box;">
+            
+            <div id="printableInvoiceArea" class="invoice-pdf-capture">
+                
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #cbd5e1; padding-bottom: 15px; margin-bottom: 20px;">
+                    <div style="text-align: left;">
+                        <h1 style="color: #0f172a; margin: 0; font-size: 1.75rem; font-weight: 800; font-family: 'Montserrat', sans-serif; letter-spacing: -0.5px;">TravelWithUs Ltd.</h1>
+                        <p style="color: #64748b; margin: 6px 0 0 0; font-size: 0.85rem; line-height: 1.4; font-family: 'Montserrat', sans-serif; font-weight: 500;">
+                            Office no 101, 17th floor,<br>
+                            Vashi Info Tech Park, Sec 17,<br>
+                            Navi Mumbai - 400703
+                        </p>
+                    </div>
+                    <div style="text-align: right;">
+                        <h2 style="color: #2563eb; margin: 0; font-size: 1.5rem; font-weight: 700; font-family: 'Montserrat', sans-serif; letter-spacing: 0.5px;">TRIP INVOICE</h2>
+                        <p style="color: #475569; margin: 6px 0 0 0; font-size: 0.88rem; font-weight: 600; font-family: 'Montserrat', sans-serif;">Invoice No: <span id="pdfInvoiceNo" style="color: #0f172a; font-weight: 700;">---</span></p>
+                        <p style="color: #475569; margin: 3px 0 0 0; font-size: 0.88rem; font-weight: 600; font-family: 'Montserrat', sans-serif;">Issue Date: <span id="pdfIssueDate" style="color: #0f172a; font-weight: 700;">---</span></p>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                    <div style="text-align: left; width: 48%;">
+                        <div style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Billed Passenger</div>
+                        <div id="pdfPassengerName" style="color: #0f172a; font-size: 1.1rem; font-weight: 700; margin-top: 4px; font-family: 'Montserrat', sans-serif;">---</div>
+                        <div id="pdfPassengerEmail" style="color: #475569; font-size: 0.88rem; margin-top: 2px; font-family: 'Montserrat', sans-serif; word-break: break-all;">---</div>
+                    </div>
+                    <div style="text-align: right; width: 48%;">
+                        <div style="color: #64748b; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Booking Status</div>
+                        <div id="pdfPaymentStatus" style="color: #16a34a; font-size: 1.1rem; font-weight: 700; margin-top: 4px; font-family: 'Montserrat', sans-serif;">CONFIRMED / PAID</div>
+                        <div style="color: #475569; font-size: 0.88rem; margin-top: 2px; font-family: 'Montserrat', sans-serif;">Gateway: Simulation</div>
+                    </div>
+                </div>
+
+                <div style="background-color: #f1f5f9; font-weight: 700; color: #334155; padding: 10px 14px; border-radius: 6px; display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; box-sizing: border-box;">
+                    <span style="text-align: left; font-family: 'Montserrat', sans-serif;">Journey & Logistics Description</span>
+                    <span style="text-align: right; font-family: 'Montserrat', sans-serif;">Reservation Details</span>
+                </div>
+
+                <div style="width: 100%; box-sizing: border-box; font-family: 'Montserrat', sans-serif;">
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Selected Package Title</span><span id="pdfPackageName" style="font-weight: 700; color: #0f172a; text-align: right;">---</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Total Passengers</span><span id="pdfTravelers" style="font-weight: 700; color: #0f172a; text-align: right;">---</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Scheduled Departure Date</span><span id="pdfTravelDate" style="font-weight: 700; color: #0f172a; text-align: right;">---</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Trip Itinerary Duration</span><span id="pdfDuration" style="font-weight: 700; color: #0f172a; text-align: right;">---</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Assigned Pick-Up Station Hub</span><span id="pdfPickup" style="font-weight: 700; color: #0f172a; text-align: right;">---</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Final Drop Destination</span><span id="pdfDropLocation" style="font-weight: 700; color: #0f172a; text-align: right;">---</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Departure Train Logistics</span><span style="font-weight: 700; color: #0f172a; text-align: right;">06:30 AM | Rajdhani Express (#12424)</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; box-sizing: border-box;"><span style="color: #475569; font-weight: 500; text-align: left;">Return Train Logistics</span><span style="font-weight: 700; color: #0f172a; text-align: right;">09:15 PM | Swaraj Express (#12472)</span></div>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; align-items: center; margin-top: 25px; padding-top: 15px; border-top: 2px solid #cbd5e1; box-sizing: border-box;">
+                    <div style="text-align: right; width: 100%;">
+                        <span style="font-size: 1.05rem; font-weight: 700; color: #475569; margin-right: 12px; font-family: 'Montserrat', sans-serif;">Net Total Amount Paid:</span>
+                        <span id="pdfPrice" style="font-size: 1.65rem; font-weight: 800; color: #2563eb; display: inline-block; font-family: 'Montserrat', sans-serif;">---</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; text-align: center; border-top: 1px dashed #cbd5e1; padding-top: 15px; box-sizing: border-box;">
+                    <p style="color: #64748b; font-size: 0.82rem; margin: 0; font-weight: 600; font-family: 'Montserrat', sans-serif;">Thank you for traveling with TravelWithUs! Have a safe journey.</p>
+                </div>
+            </div>
+            
+            <button id="btnProcessPayment" class="btn-checkout" style="width: 100%;">Authorize Simulated Payment</button>
+            <div id="paymentSuccessMsg" class="status-alert">✔ Transaction Complete! Your journey records have been committed to MongoDB.</div>
+            <button id="btnDownloadInvoice" class="btn-checkout btn-download" style="width: 100%; display: none;">📥 Save Official Invoice (.PDF)</button>
+            <a href="index.html" id="btnExitNavigation" class="btn-checkout btn-cancel">Cancel and Return Home</a>
+        </div>
+    </div>
+
+    <footer> 
+        <p class="footp"><b>#THEWORLDISWAITING</b></p>
+        <div class="parent">
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+            <div class="box2"></div>
+        </div>
+        <div class="end">
+            <p id="rights">&copy; 2025 TravelwithUs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const pName = localStorage.getItem("checkout_packageName") || "Standard Tour Package";
+        const travelers = localStorage.getItem("checkout_travelers") || "1";
+        const travelDate = localStorage.getItem("checkout_journeyDate") || "Not Specified";
+        const pickup = localStorage.getItem("checkout_pickup") || "Main Terminal Hub";
+        const finalPrice = localStorage.getItem("checkout_netPrice") || "INR 15,399";
+        const email = localStorage.getItem("userEmail") || "sarvesh.patil@gmail.com";
+        const name = localStorage.getItem("userName") || "User";
+
+        let calculatedDuration = "5 Days 6 Nights";
+        let calculatedDrop = "Tour Hub Station";
+
+        const cleanCheckName = pName.toLowerCase();
+        if (cleanCheckName.includes("manali")) {
+            calculatedDuration = "6 Days 7 Nights";
+            calculatedDrop = "Manali Resort Hub, Himachal Pradesh";
+        } else if (cleanCheckName.includes("kashmir")) {
+            calculatedDuration = "6 Days 7 Nights";
+            calculatedDrop = "Srinagar Terminal, Jammu & Kashmir";
+        } else if (cleanCheckName.includes("triangle")) {
+            calculatedDuration = "5 Days 6 Nights";
+            calculatedDrop = "Jaipur Pink City Circuit, Rajasthan";
+        } else if (cleanCheckName.includes("kerala")) {
+            calculatedDuration = "5 Days 6 Nights";
+            calculatedDrop = "Alleppey Houseboat Port, Kerala";
+        } else if (cleanCheckName.includes("northeast")) {
+            calculatedDuration = "4 Days 5 Nights";
+            calculatedDrop = "Darjeeling Tiger Hill Sector, West Bengal";
+        } else if (cleanCheckName.includes("goa")) {
+            calculatedDuration = "Flexible Packages";
+            calculatedDrop = "Madgaon Junction Terminal, Goa";
+        } else if (cleanCheckName.includes("dubai")) {
+            calculatedDuration = "5 Days 6 Nights";
+            calculatedDrop = "Dubai International Airport, UAE";
+        } else if (cleanCheckName.includes("thailand")) {
+            calculatedDuration = "5 Days 6 Nights";
+            calculatedDrop = "Street Shopping Terminal, Thailand";
+        } else if (cleanCheckName.includes("bali")) {
+            calculatedDuration = "6 Days 7 Nights";
+            calculatedDrop = "Denpasar Bali International, Indonesia";
+        } else if (cleanCheckName.includes("singapore")) {
+            calculatedDuration = "4 Days 5 Nights";
+            calculatedDrop = "Marina Bay Landmarks, Singapore";
+        } else if (cleanCheckName.includes("europe")) {
+            calculatedDuration = "8 Days 9 Nights";
+            calculatedDrop = "Grand Continental Arc, Europe";
+        } else if (cleanCheckName.includes("maldives")) {
+            calculatedDuration = "4 Days 5 Nights";
+            calculatedDrop = "Male Atoll Premium Resort, Maldives";
+        } else if (cleanCheckName.includes("chardham")) {
+            calculatedDuration = "10 Days 11 Nights";
+            calculatedDrop = "Badrinath Shrine Circuit, Uttarakhand";
+        } else if (cleanCheckName.includes("jyotirlinga")) {
+            calculatedDuration = "15 Days 16 Nights";
+            calculatedDrop = "Kashi Vishwanath Terminal, Varanasi";
+        } else if (cleanCheckName.includes("shirdi")) {
+            calculatedDuration = "2 Days 3 Nights";
+            calculatedDrop = "Sai Baba Samadhi Mandir, Shirdi";
+        } else if (cleanCheckName.includes("southtemple")) {
+            calculatedDuration = "6 Days 7 Nights";
+            calculatedDrop = "Tirumala Venkateswara Hub, Tirupati";
+        } else if (cleanCheckName.includes("goldentemple")) {
+            calculatedDuration = "5 Days 6 Nights";
+            calculatedDrop = "Takht Sri Patna Sahib, Bihar";
+        } else if (cleanCheckName.includes("jagannath")) {
+            calculatedDuration = "3 Days 4 Nights";
+            calculatedDrop = "Jagannath Puri Coast Resort, Odisha";
+        }
+
+        document.getElementById("pdfPackageName").innerText = pName;
+        document.getElementById("pdfTravelers").innerText = travelers + " Person(s)";
+        document.getElementById("pdfTravelDate").innerText = travelDate;
+        document.getElementById("pdfPickup").innerText = pickup;
+        document.getElementById("pdfPrice").innerText = finalPrice;
+        document.getElementById("pdfDuration").innerText = calculatedDuration;
+        document.getElementById("pdfDropLocation").innerText = calculatedDrop;
+
+        document.getElementById("pdfInvoiceNo").innerText = "TWU-" + Math.floor(100000 + Math.random() * 900000);
+        document.getElementById("pdfIssueDate").innerText = new Date().toLocaleDateString();
+        document.getElementById("pdfPassengerName").innerText = name;
+        document.getElementById("pdfPassengerEmail").innerText = email;
+
+        document.getElementById("btnProcessPayment").addEventListener("click", async () => {
+            const payload = {
+                customerName: name,
+                email: email,
+                packageName: pName,
+                price: finalPrice,
+                peopleCount: parseInt(travelers) || 1,
+                date: travelDate,
+                status: "Approved"
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/bookings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    document.getElementById("btnProcessPayment").style.display = "none";
+                    document.getElementById("paymentSuccessMsg").style.display = "block";
+                    document.getElementById("btnDownloadInvoice").style.display = "block";
+                    
+                    const exitButton = document.getElementById("btnExitNavigation");
+                    exitButton.innerText = "Go to Home Dashboard";
+                    exitButton.style.backgroundColor = "rgba(117, 234, 234, 0.1)";
+                    exitButton.style.border = "1px solid rgb(117, 234, 234)";
+                    exitButton.style.color = "rgb(117, 234, 234)";
+                } else {
+                    alert("Order registration rejected by server API.");
+                }
+            } catch (err) {
+                console.error("Database connection failure:", err);
+            }
+        });
+
+        document.getElementById("btnDownloadInvoice").addEventListener("click", () => {
+            const element = document.getElementById("printableInvoiceArea");
+            const options = {
+                margin:       15,
+                filename:     `TravelWithUs_Invoice_${Date.now()}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    backgroundColor: '#ffffff', 
+                    logging: false,
+                    scrollY: 0,
+                    scrollX: 0
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(options).from(element).save();
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
