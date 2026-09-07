@@ -187,7 +187,7 @@
 
     .ex1boxchild:nth-child(1){
         
-        background-image: url(/img/m31.webp);
+        background-image: url(../img/m31.webp);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -213,7 +213,7 @@
 
     .ex1boxchild:nth-child(2){
         
-        background-image: url(/img/kashmir.webp);
+        background-image: url(../img/kashmir.webp);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -228,7 +228,7 @@
 
     .ex1boxchild:nth-child(3){
         
-        background-image: url(/img/gold.jpg);
+        background-image: url(../img/gold.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -244,7 +244,7 @@
 
     .ex1boxchild:nth-child(4){
         
-        background-image: url(/img/KERLA.jpg);
+        background-image: url(../img/KERLA.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -259,7 +259,7 @@
 
     .ex1boxchild:nth-child(5){
         
-        background-image: url(/img/DARJEELING.jpg);
+        background-image: url(../img/DARJEELING.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -274,7 +274,7 @@
 
     .ex1boxchild:nth-child(6){
         
-        background-image: url(/img/GOA.webp);
+        background-image: url(../img/GOA.webp);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -322,7 +322,7 @@
 
     .ex2boxchild:nth-child(1){
         
-        background-image: url(/img/dubai.webp);
+        background-image: url(../img/dubai.webp);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -348,7 +348,7 @@
 
     .ex2boxchild:nth-child(2){
         
-        background-image: url(/img/thailand.jpg);
+        background-image: url(../img/thailand.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -363,7 +363,7 @@
 
     .ex2boxchild:nth-child(3){
         
-        background-image: url(/img/BALI.jpg);
+        background-image: url(../img/BALI.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -379,7 +379,7 @@
 
     .ex2boxchild:nth-child(4){
         
-        background-image: url(/img/SINGAPORE.jpg);
+        background-image: url(../img/SINGAPORE.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -394,7 +394,7 @@
 
     .ex2boxchild:nth-child(5){
         
-        background-image: url(/img/EUROPE.jpg);
+        background-image: url(../img/EUROPE.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -409,7 +409,7 @@
 
     .ex2boxchild:nth-child(6){
         
-        background-image: url(/img/GOA.webp);
+        background-image: url(../img/GOA.webp);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -468,7 +468,7 @@
 
     .ex3boxchild:nth-child(1){
         
-        background-image: url(/img/CHARDHAM.jpg);
+        background-image: url(../img/CHARDHAM.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -494,7 +494,7 @@
 
     .ex3boxchild:nth-child(2){
         
-        background-image: url(/img/JYOTI.png);
+        background-image: url(../img/JYOTI.png);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -509,7 +509,7 @@
 
     .ex3boxchild:nth-child(3){
         
-        background-image: url(/img/SHIRDI.jpg);
+        background-image: url(../img/SHIRDI.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -525,7 +525,7 @@
 
     .ex3boxchild:nth-child(4){
         
-        background-image: url(/img/SOUTH.webp);
+        background-image: url(../img/SOUTH.webp);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -540,7 +540,7 @@
 
     .ex3boxchild:nth-child(5){
         
-        background-image: url(/img/PANJ.jpg);
+        background-image: url(../img/PANJ.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
@@ -555,7 +555,7 @@
 
     .ex3boxchild:nth-child(6){
         
-        background-image: url(/img/JAGANATH.jpg);
+        background-image: url(../img/JAGANATH.jpg);
         background-size: 320px 220px;
         background-repeat: no-repeat;
     }
