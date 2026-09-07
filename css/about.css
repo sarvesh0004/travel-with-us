@@ -9,7 +9,7 @@
 }
 
 .atop{
-    background-image: url(/img/aboutbg.jpg);
+    background-image: url(../img/aboutbg.jpg);
     height: 200px;
     width: 100%;
     background-position: center;
